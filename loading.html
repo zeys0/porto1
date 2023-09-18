@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background-color: #0C513F;
+      overflow: hidden;
+    }
+
+    .loading-text {
+      font-size: 5em;
+      color: #FFF;
+    }
+  </style>
+</head>
+<body>
+  <div class="loading-text"  ></div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/TextPlugin.min.js"></script>
+  <script>
+    gsap.registerPlugin(TextPlugin);
+
+    let languages = ["English", "Spanish", "French", "German", "Italian", "Dutch", "Portuguese", "Russian", "Chinese", "Japanese"];
+    let greetings = ["Hello", "Hola", "Bonjour", "Hallo", "Ciao", "Hallo", "Olá", "Привет", "你好", "こんにちは"];
+    let tl = gsap.timeline();
+    let text = document.querySelector(".loading-text");
+    let delay = 0.25;
+     
+
+    languages.forEach((language, i) => {
+      tl.add(() => text.innerText = `${greetings[i]}, ${language}!`, i * delay);
+    });
+   
+    
+    
+  </script>
+</body>
+</html>
